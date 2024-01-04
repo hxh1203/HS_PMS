@@ -10,6 +10,7 @@ namespace PermissionManagementSystem.Models
 {
     public  class SetModel : ObservableObject
     {
+        public string  TestBranch { get; set; }
         private string _textBySearchName;
         public new string TextBySearchName
         {

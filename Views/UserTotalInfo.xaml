@@ -25,6 +25,7 @@
                     Command="{Binding CloseWindowCommand}" CommandParameter="{Binding ElementName=UserInfoWindow}" Margin="385,0,0,0"/>
             <Border Height="1" Background="#E5E7E9" Margin="0,34,0,0"/>
         </Grid>
+        
         <Grid Grid.Row="1" >
             <Grid.RowDefinitions>
                 <RowDefinition Height="20"/>
@@ -50,35 +51,59 @@
                 <ColumnDefinition Width="121"/>
                 <ColumnDefinition Width="18"/>
             </Grid.ColumnDefinitions>
-            <TextBlock Grid.Column="1" Grid.Row="1" TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center"  Width="58" Text="当前用户：" Height="15" FontSize="11"/>
-            <TextBlock Grid.Column="3" HorizontalAlignment="Center" Grid.Row="1" TextWrapping="Wrap"  FontSize="10" VerticalAlignment="Center" Width="120" Height="20"
-                       Background="#e9ebed" Text="{Binding SetModel.SelectedItem.LoginName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
-            <TextBlock Grid.Column="5" HorizontalAlignment="Center" Grid.Row="1" TextWrapping="Wrap" Text="密码：" VerticalAlignment="Center" Width="58" Height="15"/>
-            <TextBox Grid.Column="7" HorizontalAlignment="Center" Grid.Row="1"  FontSize="10" VerticalAlignment="Center" Width="120" Height="20"
-                         VerticalContentAlignment="Center" Text="{Binding SetModel.SelectedItem.Password, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
-            <TextBlock Grid.Column="1" HorizontalAlignment="Center" Grid.Row="5" TextWrapping="Wrap" Text="姓名：" VerticalAlignment="Center" Width="58" Height="15"  FontSize="11"/>
-            <TextBox Grid.Column="3" HorizontalAlignment="Center" Grid.Row="5"  FontSize="10"  VerticalAlignment="Center" Width="120" Height="20" 
-                     VerticalContentAlignment="Center" Text="{Binding SetModel.SelectedItem.Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
-            <TextBlock Grid.Column="1" HorizontalAlignment="Center" Grid.Row="7" TextWrapping="Wrap" Text="电话：" VerticalAlignment="Center" Height="15" Width="58"  FontSize="11" />
-            <TextBox Grid.Column="3" HorizontalAlignment="Center" Grid.Row="7" FontSize="10"  VerticalAlignment="Center" Width="120" Height="20" 
-                     VerticalContentAlignment="Center" Text="{Binding SetModel.SelectedItem.Mobile, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
-            <TextBlock Grid.Column="1" HorizontalAlignment="Center" Grid.Row="9" TextWrapping="Wrap" Text="邮箱：" VerticalAlignment="Center" Height="15" Width="58"  FontSize="11"/>
-            <TextBox Grid.Column="3" HorizontalAlignment="Center" Grid.Row="9" FontSize="10" VerticalAlignment="Center" Width="120" Height="20" 
-                     VerticalContentAlignment="Center" Text="{Binding SetModel.SelectedItem.Email, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
-            <TextBlock Grid.Column="5" HorizontalAlignment="Center" Grid.Row="7" TextWrapping="Wrap" Text="角色：" VerticalAlignment="Center" Height="15" Width="58"  FontSize="11" />
-            <ComboBox x:Name="roleComboBox" Grid.Column="7" HorizontalAlignment="Center" Grid.Row="7" FontSize="10" VerticalAlignment="Center" Width="120" Height="20" SelectedIndex="0"
-                     VerticalContentAlignment="Center" SelectedValue="{Binding SetModel.SelectedItem.Role, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" SelectedValuePath="Tag"   >
+            <TextBlock Grid.Column="1" Grid.Row="1" TextWrapping="Wrap"
+                       HorizontalAlignment="Center" VerticalAlignment="Center"
+                       Width="58" Text="用户名：" Height="15" FontSize="11"/>
+            <TextBlock Grid.Column="3" Grid.Row="1" HorizontalAlignment="Center"
+                       TextWrapping="Wrap" VerticalAlignment="Center"
+                       Width="120" Height="20" FontSize="10" Background="#e9ebed"
+                       Text="{Binding SetModel.SelectedItem.LoginName}"/>
+            <TextBlock Grid.Column="5"  Grid.Row="1" TextWrapping="Wrap" Text="密码："
+                       HorizontalAlignment="Center" VerticalAlignment="Center" Width="58" Height="15"/>
+            <TextBox Grid.Column="7"  Grid.Row="1" HorizontalAlignment="Center" FontSize="10"
+                     VerticalAlignment="Center" Width="120" Height="20" VerticalContentAlignment="Center"
+                       Text="{Binding UserSelected.Password, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+            <TextBlock Grid.Column="1"  Grid.Row="3" TextWrapping="Wrap" Text="姓名：" 
+                       HorizontalAlignment="Center" VerticalAlignment="Center"
+                       Width="58" Height="15"  FontSize="11"/>
+            <TextBox Grid.Column="3"  Grid.Row="3" FontSize="10"
+                     HorizontalAlignment="Center" VerticalAlignment="Center" Width="120" Height="20" 
+                     VerticalContentAlignment="Center" 
+                     Text="{Binding UserSelected.Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+            <TextBlock Grid.Column="1" Grid.Row="5" HorizontalAlignment="Center" TextWrapping="Wrap" Text="电话：" VerticalAlignment="Center" Height="15" Width="58"  FontSize="11" />
+            <TextBox Grid.Column="3" Grid.Row="5" HorizontalAlignment="Center" FontSize="10"  VerticalAlignment="Center" Width="120" Height="20" 
+                     VerticalContentAlignment="Center" Text="{Binding UserSelected.Mobile, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+            <TextBlock Grid.Column="1" Grid.Row="7" HorizontalAlignment="Center" TextWrapping="Wrap" Text="邮箱：" VerticalAlignment="Center" Height="15" Width="58"  FontSize="11"/>
+            <TextBox Grid.Column="3" Grid.Row="7" HorizontalAlignment="Center" FontSize="10" VerticalAlignment="Center" Width="120" Height="20" 
+                     VerticalContentAlignment="Center" Text="{Binding UserSelected.Email, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+            <TextBlock Grid.Column="5" Grid.Row="5" HorizontalAlignment="Center" TextWrapping="Wrap" Text="角色：" VerticalAlignment="Center" Height="15" Width="58"  FontSize="11" />
+            <ComboBox x:Name="roleComboBox" Grid.Column="7" Grid.Row="5" HorizontalAlignment="Center" FontSize="10" VerticalAlignment="Center" Width="120" Height="20" SelectedIndex="0"
+                     VerticalContentAlignment="Center" SelectedValue="{Binding UserSelected.Role, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" SelectedValuePath="Tag"   >
                 <ComboBoxItem x:Name="roleComboBox1" Content="超级管理员" Tag="超级管理员" />
                 <ComboBoxItem x:Name="roleComboBox2" Content="管理员" Tag="管理员" />
                 <ComboBoxItem x:Name="roleComboBox3" Content="普通用户" Tag="普通用户" />
             </ComboBox>
-            <TextBlock Grid.Column="5" HorizontalAlignment="Center" Grid.Row="9" TextWrapping="Wrap" Text="权限等级：" VerticalAlignment="Center" Height="15" Width="58"  FontSize="11" />
-            <ComboBox x:Name="ALComboBox" Grid.Column="7" HorizontalAlignment="Center" Grid.Row="9" FontSize="10" VerticalAlignment="Center" Width="120" Height="20" SelectedIndex="0"
-         VerticalContentAlignment="Center" SelectedValue="{Binding SetModel.SelectedItem.AuthorityLevel, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" SelectedValuePath="Tag"  >
+            <TextBlock Grid.Column="5" Grid.Row="7" HorizontalAlignment="Center" TextWrapping="Wrap" Text="权限等级：" VerticalAlignment="Center" Height="15" Width="58"  FontSize="11" />
+            <ComboBox x:Name="ALComboBox" Grid.Row="7" Grid.Column="7" HorizontalAlignment="Center" FontSize="10" VerticalAlignment="Center" Width="120" Height="20" SelectedIndex="0"
+         VerticalContentAlignment="Center" SelectedValue="{Binding UserSelected.AuthorityLevel, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" SelectedValuePath="Tag"  >
                 <ComboBoxItem x:Name="ALComboBox1" Content="1级权限" Tag="1级权限" />
                 <ComboBoxItem x:Name="ALComboBox2" Content="2级权限" Tag="2级权限" />
                 <ComboBoxItem x:Name="ALComboBox3" Content="3级权限" Tag="3级权限" />
             </ComboBox>
+            <TextBlock Grid.Column="1" Grid.Row="9" TextWrapping="Wrap"
+                        HorizontalAlignment="Center" VerticalAlignment="Center"
+                        Width="58" Text="插入时间：" Height="15" FontSize="11"/>
+            <TextBlock Grid.Column="3" Grid.Row="9" HorizontalAlignment="Center"
+                        TextWrapping="Wrap" VerticalAlignment="Center"
+                        Width="120" Height="20" FontSize="10" Background="#e9ebed"
+                        Text="{Binding UserSelected.InsertDateTime, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+            <TextBlock Grid.Column="5" Grid.Row="9" TextWrapping="Wrap"
+            HorizontalAlignment="Center" VerticalAlignment="Center"
+            Width="58" Text="更新时间：" Height="15" FontSize="11"/>
+            <TextBlock Grid.Column="7" Grid.Row="9" HorizontalAlignment="Center"
+            TextWrapping="Wrap" VerticalAlignment="Center"
+            Width="120" Height="20" FontSize="10" Background="#e9ebed"
+            Text="{Binding UserSelected.UpdateDateTime, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
         </Grid>
         <Grid Grid.Row="2" >
             <Border Height="1" Background="#E5E7E9" Margin="0,0,0,35"/>

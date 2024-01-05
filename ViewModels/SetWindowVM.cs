@@ -30,7 +30,7 @@ namespace PermissionManagementSystem.ViewModels
             DeleteSelectedRowCommand = new RelayCommand(DeleteSelectedRow, CanDeleteSelectedRow);
             UpdateSelectedRowCommand = new RelayCommand(UpdateSelectedRow, CanUpdateSelectedRow);
             RefreshLogCommand = new RelayCommand(RefreshLog);
-            ShowUserInfoCommand = new RelayCommand(ShowUserInfo);
+            ShowUserInfoCommand = new RelayCommand(ShowUserInfoWindow);
         }
         private ObservableCollection<Users> _usersList;
         public ObservableCollection<Users> UsersList { get => _usersList; set => SetProperty(ref _usersList, value); }
@@ -205,18 +205,19 @@ namespace PermissionManagementSystem.ViewModels
         {
             return true;
         }
-        private void ShowUserInfo()
+        private void ShowUserInfoWindow()
         {
-            if (SetModel.SelectedItem != null)
-            {
-                SqlHelper.GetUserBySelected(SetModel.SelectedItem.ID);
-
-            }
             var userInfoWindow = new UserTotalInfo();
             userInfoWindow.Show();
+            ShowUserInfo();
         }
-
-
+        private void ShowUserInfo()
+        {
+            //if (SetModel.SelectedItem != null)
+            //{
+            //    List<HS_SYS_USER> baseUsers = SqlHelper.GetUserBySelected(SetModel.SelectedItem.ID);
+            //    UsersSelectedList = new List<Users>(baseUsers.Select(u => new Users(u)).ToList());
+            //}
+        }
     }
-
-}
+} 

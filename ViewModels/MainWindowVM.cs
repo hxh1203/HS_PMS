@@ -25,7 +25,6 @@ namespace PermissionManagementSystem.ViewModels
 {
     public partial class MainWindowVM : ObservableObject
     {
-
         public MainWindowVM()
         {
             LoginCommand = new RelayCommand<Window>(ExecuteLogin , CanExecuteLogin);

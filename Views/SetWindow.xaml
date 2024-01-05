@@ -194,18 +194,20 @@
                                     </Style>
                                 </DataGrid.Resources>
                                 <DataGrid.Columns>
-                                    <DataGridTextColumn Header="ID" Width="60" Binding="{Binding ID}" IsReadOnly="True" />
-                                    <DataGridTextColumn Header="账号" Width="100" Binding="{Binding LoginName}" IsReadOnly="True"/>
-                                    <DataGridTextColumn Header="姓名" Width="100" Binding="{Binding Name}" IsReadOnly="True"/>
-                                    <DataGridTextColumn Header="部门ID" Width="100" Binding="{Binding DeptID}"/>
-                                    <DataGridTextColumn Header="部门名称" Width="100" Binding="{Binding DeptName}"/>
-                                    <DataGridTextColumn Header="职位" Width="100" Binding="{Binding PosName}"/>
-                                    <DataGridTextColumn Header="权限等级" Width="100" Binding="{Binding AuthorityLevel}" IsReadOnly="True"/>
-                                    <DataGridTextColumn Header="角色" Width="120" Binding="{Binding Role}" IsReadOnly="True"/>
+                                    <DataGridTextColumn Header="ID" Width="60*" Binding="{Binding ID}" IsReadOnly="True" />
+                                    <DataGridTextColumn Header="账号" Width="100*" Binding="{Binding LoginName}" IsReadOnly="True"/>
+                                    <DataGridTextColumn Header="姓名" Width="100*" Binding="{Binding Name}" IsReadOnly="True"/>
+                                    <DataGridTextColumn Header="电话" Width="120*" Binding="{Binding Mobile}" />
+                                    <DataGridTextColumn Header="邮箱" Width="120*" Binding="{Binding Email}" />
+                                    <DataGridTextColumn Header="部门ID" Width="100*" Binding="{Binding DeptID}"/>
+                                    <DataGridTextColumn Header="部门名称" Width="100*" Binding="{Binding DeptName}"/>
+                                    <DataGridTextColumn Header="职位" Width="100*" Binding="{Binding PosName}"/>
+                                    <DataGridTextColumn Header="权限等级" Width="100*" Binding="{Binding AuthorityLevel}" IsReadOnly="True"/>
+                                    <DataGridTextColumn Header="角色" Width="120*" Binding="{Binding Role}" IsReadOnly="True"/>
                                     <DataGridTemplateColumn Header="操作">
                                         <DataGridTemplateColumn.CellTemplate>
-                                            <DataTemplate> 
-                                                <Button Content="详情" Width= "80" Height="20" FontSize="11" 
+                                            <DataTemplate>
+                                                <Button  Content="详情" Width= "60" Height="20" FontSize="11" 
                                                         Command="{Binding DataContext.ShowUserInfoCommand,RelativeSource={RelativeSource AncestorType=DataGrid}}"/>
                                             </DataTemplate>
                                         </DataGridTemplateColumn.CellTemplate>
@@ -227,7 +229,7 @@
                                     Kind="AccountWrenchOutline" />
                                 <TextBlock
                                     HorizontalAlignment="Center"
-                                    Text="角色管理" />
+                                    Text="修改密码" />
                             </StackPanel>
                         </TabItem.Header>
                         <StackPanel
@@ -235,8 +237,8 @@
                             <TextBlock
                                 Margin="0,0,0,8"
                                 Style="{StaticResource MaterialDesignHeadline5TextBlock}"
-                                Text="角色管理" />
-                            <TextBlock>
+                                Text="修改密码" />
+                            <TextBlock Height="564">
                             <Run
                                 Text="待开发" />
                             <LineBreak />

@@ -85,9 +85,9 @@ namespace PermissionManagementSystem.Base
         /// </summary>
         /// <param name="entity"></param>
         /// <returns></returns>
-        public static void GetUserBySelected(int id)
+        public static List<HS_SYS_USER> GetUserBySelected(int id)
         {
-            db.Queryable<HS_SYS_USER>().Where(c => c.ID == id).ToList();
+            return db.Queryable<HS_SYS_USER>().Where(c => c.ID == id).ToList();
         }
         /// <summary>
         /// 查询日志信息
